@@ -1,11 +1,11 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss']
 })
-export class TitleComponent implements OnInit, OnChanges {
+export class TitleComponent implements OnInit, OnDestroy {
 
   constructor() {}
 
@@ -13,8 +13,8 @@ export class TitleComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  // Somente quando tem um input()
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnDestroy(): void {
+    console.log("Componente destruido")
   }
 
 }
