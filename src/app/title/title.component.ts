@@ -7,8 +7,6 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class TitleComponent implements OnInit, OnChanges {
 
-  @Input() public title:string = "Bem vindo";
-
   constructor() {}
 
   // Acontece depois do construtor
@@ -17,7 +15,6 @@ export class TitleComponent implements OnInit, OnChanges {
 
   // Somente quando tem um input()
   ngOnChanges(changes: SimpleChanges): void {
-    alert("Foi Alterado")
   }
 
 }
