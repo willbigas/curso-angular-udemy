@@ -5,7 +5,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
   template: `
     <app-title *ngIf="destruir"></app-title>
     <br>
-    <button (click)="destruirComponent()">Destruir componente</button>
+    <button (mouseenter)="destruirComponent()">Destruir componente</button>
     <router-outlet></router-outlet>
   `,
 })
