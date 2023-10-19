@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <app-title></app-title>
+    <app-title title="Teste de input vindo da escrita do componente"></app-title>
     <router-outlet></router-outlet>
   `,
 })
