@@ -14,19 +14,44 @@
 <!--<li *ngFor="let item of list">{{item.nome}}</li>-->
 
 
+<!--<hr>-->
+
+<!--<h2>NG-Template</h2>-->
+
+<!--<ng-template ngFor let-item [ngForOf]="list">-->
+<!--  <p>-->
+<!--    {{item.nome}}-->
+<!--  </p>-->
+<!--</ng-template>-->
+
+<!--<input [(ngModel)]="nome">-->
+
+<!--<button (click)="salvar()">Salvar</button>-->
+
+
+<!--<ng-content select="h3"></ng-content>-->
+
+
 <hr>
 
-<h2>NG-Template</h2>
-
-<ng-template ngFor let-item [ngForOf]="list">
-  <p>
-    {{item.nome}}
-  </p>
-</ng-template>
-
-<input [(ngModel)]="nome">
-
-<button (click)="salvar()">Salvar</button>
+<h2>Pipes</h2>
 
 
-<ng-content select="h3"></ng-content>
+<!--<input [(ngModel)]="nome">-->
+
+<!--<button (click)="salvar()">Salvar</button>-->
+
+<!--<li *ngFor="let item of list">{{item.nome | uppercase}}</li>-->
+
+<b> Data <i>[dd/MM/yyyy HH:mm:ss]</i> </b> : {{date | date: 'dd/MM/yyyy HH:mm:ss'}}
+<br>
+<b>Valor <i>[R$ 0.000,00] </i> </b> : {{ valorMonetario | currency }}
+<br>
+<b>Percentual <i>[00.000%] </i> </b> : {{ valorPercentual | percent}}
+<br>
+<b>CPF </b> : {{cpf | cpf}}
+
+
+
+
+

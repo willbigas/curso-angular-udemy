@@ -13,6 +13,11 @@ export class DiretivasAtributosComponent implements OnInit {
   public nome: string = "";
   public list: Array<{nome: string}> = [{nome: "William Bigas Mauro"}];
 
+  public date: Date = new Date();
+  public valorMonetario: number = 15465988784848.5487814697;
+  public valorPercentual: number = 1.25;
+  public cpf: number = 10052185958;
+
   ngOnInit(): void {
     setInterval(() => {
       this.valor = !this.valor;
