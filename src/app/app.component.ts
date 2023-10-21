@@ -1,30 +1,21 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
-    <app-title *ngIf="destruir"></app-title>
-    <br>
-    <button (mouseenter)="destruirComponent()">Destruir componente</button>
+    <app-data-biding></app-data-biding>
     <router-outlet></router-outlet>
   `,
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
 
-  public destruir: boolean = true;
-
-  public destruirComponent() {
-    console.log("Teste")
-    this.destruir = false;
+  constructor() {
   }
 
   ngOnInit(): void {
     console.log("Teste")
   }
 
-  ngOnDestroy(): void {
-
-  }
 
 
 }
