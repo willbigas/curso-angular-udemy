@@ -13,6 +13,7 @@ import {DiretivasAtributosComponent} from './diretivas-atributos/diretivas-atrib
 import ptBr from '@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
 import {CpfPipe} from "./pipe/CpfPipe";
+import {SharedModule} from "./shared/shared.module";
 
 registerLocaleData(ptBr);
 
@@ -28,7 +29,8 @@ registerLocaleData(ptBr);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'},
