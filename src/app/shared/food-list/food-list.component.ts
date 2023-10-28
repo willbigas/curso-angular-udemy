@@ -9,19 +9,22 @@ import {FoodList} from "../../modules/food-list";
 })
 export class FoodListComponent implements OnInit {
 
-  public foodList: FoodList[] = [];
+  public foodList: Array<FoodList> = [];
 
   constructor(private foodListService: FoodListService) {
   }
 
   ngOnInit(): void {
     this.foodListService.foodList().subscribe(
-      next => this.foodList = next,
-      error => error
+      res => this.foodList = res,
+      error => console.log(error)
     );
 
     this.foodListService.emitEvent.subscribe(
-      res => alert(`Olha você add => ${res}`)
+      res => {
+        alert(`Olha você add => ${res.nome}`)
+        return this.foodList.push(res);
+      }
     )
   }
 

@@ -15,11 +15,27 @@ export class FoodListService {
 
   private url: string = "http://localhost:3000/";
 
-  public foodList(): Observable<FoodList[]> {
-    return this.httpClient.get<FoodList[]>(`${this.url}list-food`)
+  public foodList(): Observable<Array<FoodList>> {
+    return this.httpClient.get<Array<FoodList>>(`${this.url}list-food`)
       .pipe(
         res => res,
         error => error
       );
+  }
+
+  public foodListAdd(value: string): Observable<FoodList> {
+
+    let foodlist:FoodList = {id: 1, nome: value};
+
+    this.foodListAlert(foodlist);
+    return this.httpClient.post<FoodList>(`${this.url}list-food`, {nome: value})
+      .pipe(
+        res => res,
+        error => error
+      );
+  }
+
+  public foodListAlert(value: FoodList) {
+    return this.emitEvent.emit(value)
   }
 }
