@@ -1,4 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {FoodList} from "../modules/food-list";
 
 @Injectable({
   providedIn: 'root'
@@ -7,24 +10,16 @@ export class FoodListService {
 
   public emitEvent = new EventEmitter();
 
-  private list: Array<string> = [
-    "X Bacon",
-    "Feijão",
-    "Ovo"
-  ];
-
-  constructor() { }
-
-  public foodList() {
-    return this.list;
+  constructor(private httpClient: HttpClient) {
   }
 
-  public foodListAdd(value: string) {
-    this.foodListAlert(value);
-    this.foodList().push(value);
-  }
+  private url: string = "http://localhost:3000/";
 
-  public foodListAlert(value: string) {
-    return this.emitEvent.emit(value);
+  public foodList(): Observable<FoodList[]> {
+    return this.httpClient.get<FoodList[]>(`${this.url}list-food`)
+      .pipe(
+        res => res,
+        error => error
+      );
   }
 }

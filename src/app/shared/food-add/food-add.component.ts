@@ -11,7 +11,4 @@ export class FoodAddComponent {
   constructor(private foodListService:FoodListService) {
   }
 
-  public listAddItem(value: string) {
-    return this.foodListService.foodListAdd(value);
-  }
 }
