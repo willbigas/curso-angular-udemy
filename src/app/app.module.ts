@@ -14,6 +14,7 @@ import ptBr from '@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
 import {CpfPipe} from "./pipe/CpfPipe";
 import {SharedModule} from "./shared/shared.module";
+import { FormsComponent } from './forms/forms.component';
 
 registerLocaleData(ptBr);
 
@@ -24,7 +25,8 @@ registerLocaleData(ptBr);
     DataBidingComponent,
     DiretivasEstruturaisComponent,
     DiretivasAtributosComponent,
-    CpfPipe
+    CpfPipe,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
