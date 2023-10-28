@@ -23,7 +23,7 @@ export class FoodListService {
   private url: string = "http://localhost:3000/";
 
   public foodList(): Observable<Array<FoodList>> {
-    return this.httpClient.get<Array<FoodList>>(`${this.url}list-food`)
+    return this.httpClient.get<Array<FoodList>>(`${this.url}list-food`, this.httpOptions)
       .pipe(
         res => res,
         error => error
@@ -31,22 +31,22 @@ export class FoodListService {
   }
 
   public foodListAdd(value: string): Observable<FoodList> {
-    return this.httpClient.post<FoodList>(`${this.url}list-food`, {nome: value})
+    return this.httpClient.post<FoodList>(`${this.url}list-food`, {nome: value}, this.httpOptions)
       .pipe(
         res => res,
         error => error
       );
   }
 
-   public foodListPut(id: number , value: string): Observable<FoodList> {
-    return this.httpClient.put<FoodList>(`${this.url}list-food/${id}`, { nome: value }).pipe(
+  public foodListPut(id: number, value: string): Observable<FoodList> {
+    return this.httpClient.put<FoodList>(`${this.url}list-food/${id}`, {nome: value}, this.httpOptions).pipe(
       res => res,
       error => error
     )
   }
 
   public foodListDelete(id: number): Observable<FoodList> {
-    return this.httpClient.delete<FoodList>(`${this.url}list-food/${id}`).pipe(
+    return this.httpClient.delete<FoodList>(`${this.url}list-food/${id}`, this.httpOptions).pipe(
       res => res,
       error => error
     )
